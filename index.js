@@ -1,12 +1,21 @@
 const zodiacSign = require('get-zodiac-sign');
-var myZodiacSign1 = zodiacSign(3,13);
-var myZodiacSign2 = zodiacSign(2,18);
+const quotes = require("success-motivational-quotes");
+
+
+var myZodiacSign1 = zodiacSign(6,28);
+var myZodiacSign2 = zodiacSign(9,15);
+var myZodiacSign3 = zodiacSign(8,30);
 console.log(myZodiacSign1);
 console.log(myZodiacSign2);
+console.log(myZodiacSign3);
+console.log(quotes.getQuotesByCategory("Learning"));
+console.log(quotes.getQuotesByAuthor("Thomas Jefferson"))
+console.log(quotes.getTodaysQuote());
+console.log(quotes.getQuoteById(357))
 
 //use the fs function that comes with node
 const fs = require("fs");
-fs.writeFileSync("file1.txt", myZodiacSign1 + " and " + myZodiacSign2);
+fs.writeFileSync("file2.txt", myZodiacSign1 + " and " + myZodiacSign2);
 
 // creates a local web server and displays the above variables
 const http = require('http');
@@ -19,7 +28,6 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end("My Zodiac Sign is " + myZodiacSign1);
-  res.end("My Daughter's Zodiac Sign is " + myZodiacSign2);
     
 });
 
